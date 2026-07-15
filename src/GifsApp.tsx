@@ -6,32 +6,32 @@ import { CustomHeader } from "./shared/components/CustomHeader"
 import { SearchBar } from "./shared/components/SearchBar"
 
 export const GifsApp = () => {
-    const [previousTerms, setPreviousTerms] = useState(['dragon ball z']);
+  const [previousTerms, setPreviousTerms] = useState(['dragon ball z']);
 
-    const handleTermClicked = (term: string) => {
-        console.log(`Term clicked: ${term}`);
-    }
+  const handleTermClicked = (term: string) => {
+    console.log(`Term clicked: ${term}`);
+  }
 
-    const handleSearch = (query: string) => {
-        setPreviousTerms([...previousTerms, query]);
-    }
+  const handleSearch = (query: string) => {
+    setPreviousTerms([...previousTerms, query]);
+  }
 
   return (
     <>
-        {/* Header */}
-        <CustomHeader title="Buscador de gifs" description="Descubre y comparte el Gif perfecto" />
+      {/* Header */}
+      <CustomHeader title="Buscador de gifs" description="Descubre y comparte el Gif perfecto" />
 
-        {/* SearchBar */}
-        <SearchBar onQuery={handleSearch} />
+      {/* SearchBar */}
+      <SearchBar onQuery={handleSearch} />
 
-        {/* Previous searches */}
-        <PreviousSearches 
-            searches={previousTerms}
-            onLabelClicked={handleTermClicked}
-        />
+      {/* Previous searches */}
+      <PreviousSearches
+        searches={previousTerms}
+        onLabelClicked={handleTermClicked}
+      />
 
-        {/* Gifs container */}
-        <GifList gifs={mockGifs} />
+      {/* Gifs container */}
+      <GifList gifs={mockGifs} />
     </>
   )
 }
